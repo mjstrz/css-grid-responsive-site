@@ -12,6 +12,13 @@ body {
     max-width: 100%;
   }
 
+  /* .wrapper */
+
+  .wrapper { 
+    display: grid;
+    grid-gap: 20px;
+  }
+
   .top {
     display: grid;
     grid-gap: 20px;
@@ -69,7 +76,6 @@ body {
     display: grid;
     grid-gap: 10px;
     padding: 0;
-    margin: 20px 0;
     list-style: none;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
@@ -112,4 +118,14 @@ body {
 
   .feature p {
     color: rgba(0, 0, 0, 0.5)
+  }
+
+  /* About section */
+
+  .about { 
+    background-color: white;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    align-items: center;
   }
