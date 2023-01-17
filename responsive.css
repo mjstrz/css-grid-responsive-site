@@ -162,3 +162,73 @@ body {
   .gallery img {
     width: 100%;
   }
+
+  /* Media Queries */
+
+  @media (max-width: 1000px) {
+    .menu {
+      order: -1;
+      /* since .menu is a direct descendent of .wrapper, this switches the order so that in smaller viewports below 1000px, 
+      the menu appears before the .top (in the html, the .top comes before .menu) */
+      perspective: 800px
+    }
+
+    [aria-controls="menu-list"] {
+      display: block;
+      margin-bottom: 10px; 
+    }
+
+    /* The toggler! */
+    .menu ul {
+      max-height: 0;
+      overflow: hidden;
+      transform: rotateX(90deg);
+      transition: all 0.5s;
+    }
+
+    /* the ~ means "future sibling", in other words the ul once aria-expanded is set to true */
+    [aria-expanded ="true"] ~ ul {
+      display: grid;
+      max-height: 500px;
+      transform: rotateX(0);
+    }
+
+    /* hides the little 'x' that was appearing left of the Menu text on the Menu toggler */
+    [aria-expanded ="false"] .close {
+      display: none;
+    }
+
+    /* displays the three line menu icon next to the Menu text when the menu is closed. Simultaneously hides the little X. */
+    [aria-expanded ="true"] .close {
+      display: inline-block;
+    }
+
+    /* displays the little "x" when the menu is expanded, indicating to the user the option to close the menu bar using the toggle button */
+    [aria-expanded ="true"] .open {
+      display: none;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .top {
+      grid-template-areas: 
+        "hero hero"
+        "cta1 cta2"
+    }
+
+    /* About */
+
+    .about {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .top {
+      grid-template-areas: 
+        "hero"
+        "cta1"
+        "cta2"
+    }
+  }
+

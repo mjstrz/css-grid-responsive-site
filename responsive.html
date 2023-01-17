@@ -102,6 +102,16 @@
   </div>
 
   <script>
+    const navButton = document.querySelector('button[aria-expanded]');
+
+    function toggleNav({ target }) {
+        const expanded = target.getAttribute('aria-expanded') === 'true' || false; // changes the boolean HTML value for the nav button back and forth between true to false 
+
+        navButton.setAttribute('aria-expanded', !expanded); //set the attribute of aria-expanded to be the opposite of what it currently is 
+    }
+
+    navButton.addEventListener('click', toggleNav);
+
   </script>
   
 </body>
